@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff7ac8,#8b5cf6);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+/* SOBRE */
+
+.sobre{
+width:200px;
+height:140px;
+background:white;
+position:relative;
+cursor:pointer;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:20px;
+color:#8b5cf6;
+font-weight:bold;
+transition:0.5s;
+}
+
+.sobre:hover{
+transform:scale(1.1);
+}
+
+/* MENSAJE */
+
+#contenido{
+display:none;
+max-width:800px;
+}
+
+h1{
+margin-top:10px;
+}
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.galeria img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0px 10px 25px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+/* CORAZONES */
+
+.corazon{
+position:absolute;
+color:white;
+font-size:20px;
+animation:flotar 6s linear infinite;
+}
+
+@keyframes flotar{
+
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sobre" onclick="abrirCarta()">
+💌 Abrir
+</div>
+
+<div id="contenido">
+
+<h1>🌸 Feliz Día de la Mujer 🌸</h1>
+
+<p>
+Hoy celebramos la fuerza, inteligencia y valentía de todas las mujeres.
+Gracias por hacer el mundo mejor cada día.
+</p>
+
+<div class="galeria">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+<img src="foto5.jpg">
+<img src="foto6.jpg">
+
+</div>
+
+</div>
+
+<script>
+
+function abrirCarta(){
+
+document.querySelector(".sobre").style.display="none"
+document.getElementById("contenido").style.display="block"
+
+}
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+let corazon=document.createElement("div")
+
+corazon.classList.add("corazon")
+
+corazon.innerHTML="💜"
+
+corazon.style.left=Math.random()*100+"vw"
+
+corazon.style.fontSize=(Math.random()*20+10)+"px"
+
+document.body.appendChild(corazon)
+
+setTimeout(()=>{
+corazon.remove()
+},6000)
+
+}
+
+setInterval(crearCorazon,500)
+
+</script>
+
+</body>
+</html>
